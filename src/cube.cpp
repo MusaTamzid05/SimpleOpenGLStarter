@@ -79,7 +79,7 @@ namespace Mutiny {
         delete shader;
     }
 
-    void Cube::update() {
+    void Cube::update(float delta_time) {
 
     }
 

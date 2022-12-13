@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <SFML/Window.hpp>
+#include <chrono>
 #include "game_object.h"
 
 namespace Mutiny {
@@ -24,6 +25,9 @@ namespace Mutiny {
         int height;
 
         std::vector<GameObject*> game_obejcts;
+
+        std::chrono::time_point<std::chrono::system_clock> previous_time;
+        float accumulator;
     };
 }
 

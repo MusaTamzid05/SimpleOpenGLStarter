@@ -6,6 +6,8 @@
 #include <fstream>
 #include <vector>
 
+#include "consts.h"
+
 namespace Mutiny {
     Camera* Camera::instance = nullptr;
     float Camera::zoom = 45.0f;
@@ -97,7 +99,7 @@ namespace Mutiny {
 
     void Camera::process_keyboard(CameraMovement direction) {
         //float velocity = speed * Time::get_instance()->delta_time;
-        float velocity = speed;
+        float velocity = speed * TIME_STEP;
 
         if(direction == FORWARD)
             position += front * velocity;
@@ -136,7 +138,7 @@ namespace Mutiny {
         rotate(xoffset, yoffset, constrain_pitch);
     }
 
-    void Camera::update() {
+    void Camera::update(float delta_time) {
         if(update_projection) {
             init_projection();
             update_projection = false;

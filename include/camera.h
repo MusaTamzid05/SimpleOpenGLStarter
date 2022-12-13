@@ -33,7 +33,7 @@ namespace Mutiny {
             static void process_mouse_scroll(float offset);
 
             static void process_mouse_movement(float xoffset, float yoffset, bool constrain_pitch = true);
-            void update();
+            void update(float delta_time);
 
             static void rotate(float xoffset, float yoffset, bool constrain_pitch = false);
 

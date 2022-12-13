@@ -9,7 +9,7 @@ namespace Mutiny {
     struct Cube : GameObject {
         Cube();
         virtual ~Cube();
-        void update();
+        void update(float delta_time);
         void render();
 
         unsigned int VAO;

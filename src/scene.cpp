@@ -1,7 +1,7 @@
 #include "scene.h"
 #include "camera.h"
-#include "mtime.h"
 #include "cube.h"
+#include "consts.h"
 #include <SFML/OpenGL.hpp>
 #include <iostream>
 
@@ -10,7 +10,9 @@ namespace  Mutiny {
         window(sf::VideoMode(width, height), title, sf::Style::Default,
                 sf::ContextSettings(24, 8, 4, 3, 0)),
         width(width),
-        height(height) {
+        height(height),
+        accumulator(0.0f)
+    {
             window.setActive(true);
             running = true;
             window.setVerticalSyncEnabled(true);
@@ -23,6 +25,7 @@ namespace  Mutiny {
             }
 
             game_obejcts.push_back(new Cube());
+            previous_time = std::chrono::system_clock::now();
 
 
     }
@@ -89,8 +92,19 @@ namespace  Mutiny {
     }
 
     void Scene::update() {
-        MTime::update();
-        Camera::get_instance()->update();
+        std::chrono::time_point<std::chrono::system_clock> current_time = std::chrono::system_clock::now();
+        std::chrono::duration<float> elasped_seconds = current_time - previous_time;
+        float delta_time = elasped_seconds.count();
+        previous_time = current_time;
+
+        accumulator += delta_time;
+
+        while(accumulator >= TIME_STEP) {
+            Camera::get_instance()->update(TIME_STEP);
+            accumulator -= TIME_STEP;
+        }
+
+
     }
 
 }
