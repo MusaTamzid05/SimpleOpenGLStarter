@@ -1,6 +1,5 @@
 #include "scene.h"
 #include "camera.h"
-#include "cube.h"
 #include "consts.h"
 #include <SFML/OpenGL.hpp>
 #include <iostream>
@@ -24,7 +23,6 @@ namespace  Mutiny {
                 exit(1);
             }
 
-            game_obejcts.push_back(new Cube());
             previous_time = std::chrono::system_clock::now();
 
 

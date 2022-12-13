@@ -26,6 +26,8 @@ set(
 
     src/cube.cpp
 
+    src/demos/simple_scene.cpp
+
     )
 
 # Project
