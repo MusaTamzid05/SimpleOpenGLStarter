@@ -15,9 +15,13 @@ namespace Mutiny {
         void start();
         void handle_event();
         void render();
+        void update();
 
         sf::Window window;
         bool running;
+
+        int width;
+        int height;
 
         std::vector<GameObject*> game_obejcts;
     };

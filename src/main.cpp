@@ -1,12 +1,14 @@
 #include <reactphysics3d/reactphysics3d.h>
 #include <iostream>
 #include "scene.h"
+#include "camera.h"
 
 
 void test_physcis();
 
 int main(int argc, char** argv) {
     Mutiny::Scene scene("Window");
+    Mutiny::Camera::initialize(scene.width, scene.height);
     scene.start();
     return 0;
 }

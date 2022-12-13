@@ -1,4 +1,5 @@
 #include "cube.h"
+#include "camera.h"
 #include <SFML/OpenGL.hpp>
 
 #include <glm/glm.hpp>
@@ -95,8 +96,8 @@ namespace Mutiny {
 
         shader->use();
 
-        shader->setMat4("projection", projection);
-        shader->setMat4("view", view);
+        shader->setMat4("projection", Camera::get_instance()->projection);
+        shader->setMat4("view", Camera::get_instance()->get_view_matrix());
         shader->setMat4("model", model);
 
         glBindVertexArray(VAO);
