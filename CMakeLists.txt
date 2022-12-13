@@ -22,4 +22,4 @@ project(game_engine)
 add_executable(engine src/main.cpp)
 
 # Link with the ReactPhysics3D library
-target_link_libraries(engine ReactPhysics3D::ReactPhysics3D)
+target_link_libraries(engine ReactPhysics3D::ReactPhysics3D sfml-graphics sfml-window sfml-system)
