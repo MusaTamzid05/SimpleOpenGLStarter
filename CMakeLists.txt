@@ -20,6 +20,7 @@ set(
     SOURCE_FILES
     src/main.cpp
     src/shader.cpp
+    src/game_object.cpp
     src/camera.cpp
     src/scene.cpp
 

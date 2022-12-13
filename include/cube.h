@@ -15,7 +15,6 @@ namespace Mutiny {
         unsigned int VAO;
         unsigned int VBO;
 
-        Shader* shader; // gone use a shader factoty for that
 
     };
 }
