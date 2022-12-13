@@ -14,11 +14,15 @@ endif()
 # Import the ReactPhysics3D library that you have installed on your computer using
 # the "make install" command
 find_package(ReactPhysics3D REQUIRED)
+set(CMAKE_BUILD_TYPE Debug)
 
 set(
     SOURCE_FILES
     src/main.cpp
+    src/shader.cpp
     src/scene.cpp
+
+    src/cube.cpp
 
     )
 
@@ -31,4 +35,4 @@ include_directories(include)
 add_executable(engine ${SOURCE_FILES})
 
 # Link with the ReactPhysics3D library
-target_link_libraries(engine ReactPhysics3D::ReactPhysics3D sfml-graphics sfml-window sfml-system GL)
+target_link_libraries(engine ReactPhysics3D::ReactPhysics3D sfml-graphics sfml-window sfml-system GL GLEW)

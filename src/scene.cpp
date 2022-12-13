@@ -1,4 +1,5 @@
 #include "scene.h"
+#include "cube.h"
 #include <SFML/OpenGL.hpp>
 #include <iostream>
 
@@ -9,6 +10,15 @@ namespace  Mutiny {
             window.setActive(true);
             running = true;
             window.setVerticalSyncEnabled(true);
+
+            glewExperimental = GL_TRUE;
+
+            if (glewInit() != GLEW_OK) {
+                std::cerr << "glew error.\n";
+                exit(1);
+            }
+
+            game_obejcts.push_back(new Cube());
 
 
     }
@@ -33,6 +43,9 @@ namespace  Mutiny {
     void Scene::render() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        for(GameObject* game_object : game_obejcts)
+            game_object->render();
 
         window.display();
     }

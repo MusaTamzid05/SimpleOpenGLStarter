@@ -1,8 +1,12 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include <GL/glew.h>
+
 #include <string>
+#include <vector>
 #include <SFML/Window.hpp>
+#include "game_object.h"
 
 namespace Mutiny {
     struct Scene {
@@ -14,6 +18,8 @@ namespace Mutiny {
 
         sf::Window window;
         bool running;
+
+        std::vector<GameObject*> game_obejcts;
     };
 }
 
