@@ -4,10 +4,12 @@
 
 namespace  Mutiny {
     Scene::Scene(const std::string& title, int width, int height):
-        window(sf::VideoMode(width, height), title, sf::Style::Default, sf::ContextSettings(32)) {
-        window.setActive(true);
-        running = true;
-        window.setVerticalSyncEnabled(true);
+        window(sf::VideoMode(width, height), title, sf::Style::Default,
+                sf::ContextSettings(24, 8, 4, 3, 0)) {
+            window.setActive(true);
+            running = true;
+            window.setVerticalSyncEnabled(true);
+
 
     }
 
