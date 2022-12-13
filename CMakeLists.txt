@@ -24,6 +24,7 @@ set(
     src/scene.cpp
 
     src/cube.cpp
+    src/mtime.cpp
 
     )
 

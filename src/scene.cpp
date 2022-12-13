@@ -1,5 +1,6 @@
 #include "scene.h"
 #include "camera.h"
+#include "mtime.h"
 #include "cube.h"
 #include <SFML/OpenGL.hpp>
 #include <iostream>
@@ -30,6 +31,7 @@ namespace  Mutiny {
 
         while(running) {
             handle_event();
+            update();
             render();
         }
     }
@@ -87,6 +89,7 @@ namespace  Mutiny {
     }
 
     void Scene::update() {
+        MTime::update();
         Camera::get_instance()->update();
     }
 
