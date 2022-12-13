@@ -1,8 +1,17 @@
 #include <reactphysics3d/reactphysics3d.h>
 #include <iostream>
+#include "scene.h"
 
+
+void test_physcis();
 
 int main(int argc, char** argv) {
+    Mutiny::Scene scene("Window");
+    scene.start();
+    return 0;
+}
+
+void test_physcis() {
     reactphysics3d::PhysicsCommon physicsCommon;
     reactphysics3d::PhysicsWorld* world = physicsCommon.createPhysicsWorld();
 
@@ -23,5 +32,5 @@ int main(int argc, char** argv) {
 
     }
 
-    return 0;
+
 }
