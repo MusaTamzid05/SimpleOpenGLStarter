@@ -26,6 +26,9 @@ set(
 
     src/cube.cpp
 
+
+    src/texture_manager.cpp
+
     src/demos/simple_scene.cpp
 
     )
