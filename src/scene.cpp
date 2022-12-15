@@ -89,7 +89,7 @@ namespace  Mutiny {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        for(GameObject* game_object : game_obejcts)
+        for(GameObject* game_object : game_objects)
             game_object->render();
 
         window.display();
@@ -105,6 +105,9 @@ namespace  Mutiny {
 
         while(accumulator >= TIME_STEP) {
             Camera::get_instance()->update(TIME_STEP);
+            for(GameObject* game_object : game_objects)
+                game_object->update(delta_time);
+
             accumulator -= TIME_STEP;
         }
 

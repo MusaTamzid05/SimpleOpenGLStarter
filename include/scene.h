@@ -29,7 +29,7 @@ namespace Mutiny {
         std::string title;
 
 
-        std::vector<GameObject*> game_obejcts;
+        std::vector<GameObject*> game_objects;
 
         std::chrono::time_point<std::chrono::system_clock> previous_time;
         float accumulator;

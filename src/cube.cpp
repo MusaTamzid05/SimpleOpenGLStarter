@@ -3,9 +3,7 @@
 #include <SFML/OpenGL.hpp>
 #include "texture_manager.h"
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/string_cast.hpp>
 
 namespace Mutiny {
     Cube::Cube(const std::string& texture_name){
@@ -90,18 +88,18 @@ namespace Mutiny {
     }
 
     void Cube::update(float delta_time) {
+        GameObject::update(delta_time);
 
     }
 
     void Cube::render() {
 
         GameObject::render();
-        glm::mat4 model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
 
         shader->use();
         shader->setMat4("model", model);
 
+        //std::cout<<glm::to_string(model)<<std::endl;
 
         if(using_texture) 
             glBindTexture(GL_TEXTURE_2D, texture_id);
