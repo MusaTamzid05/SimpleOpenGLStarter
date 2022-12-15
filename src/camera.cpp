@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "consts.h"
+#include "utils.h"
 
 namespace Mutiny {
     Camera* Camera::instance = nullptr;
@@ -35,9 +36,36 @@ namespace Mutiny {
 
         }
 
-    void Camera::initialize(int width, int height, const std::string& scene_name) {
-        std::string path = scene_name;
+    void Camera::initialize(int width, int height, const std::string& scene_path) {
         glm::vec3 position(3.0f, 0.0f, 0.0f);
+
+        std::ifstream input_file;
+        input_file.open(scene_path);
+
+        if(input_file) {
+            std::string line;
+            while(std::getline(input_file, line)) {
+                std::vector<std::string> line_data = split(line, ' ');
+                std::cout << line_data[0] << "\n";
+
+                if(line_data[0] == "position") {
+                    std::cout << "Loading " << line << "\n";
+                    position = glm::vec3(
+                            std::stof(line_data[1]), 
+                         std::stof(line_data[2]), 
+                         std::stof(line_data[3]));
+                } 
+                else if(line_data[0] == "yaw") 
+                    yaw =  std::stof(line_data[1]);
+
+                else if(line_data[0] == "pitch") 
+                    pitch =  std::stof(line_data[1]);
+
+            }
+
+        }
+
+
         /*
 
         if(Utils::file_exists(path)) {
@@ -168,16 +196,15 @@ namespace Mutiny {
 
     }
 
-    void Camera::save(const std::string& path) const {
-        //std::cout << " Front : x = " << front.x << " y = " << front.y << " z = " << front.z << "\n";
+    void Camera::save(const std::string& scene_path) const {
         std::cout << "Position: x = " << position.x << " y = " << position.y << " z = " << position.z << "\n";
         std::cout <<  "yaw " << yaw << " pitch " << pitch << "\n";
 
         std::ofstream out_data;
-        out_data.open(path);
+        out_data.open(scene_path);
 
         if(!out_data) {
-            std::cerr << "Could open " << path << " to save.\n";
+            std::cerr << "Could open " << scene_path << " to save.\n";
             return;
         }
 

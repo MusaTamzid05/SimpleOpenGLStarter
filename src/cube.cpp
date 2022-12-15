@@ -103,10 +103,9 @@ namespace Mutiny {
         shader->setMat4("model", model);
 
 
-        if(using_texture) {
+        if(using_texture) 
             glBindTexture(GL_TEXTURE_2D, texture_id);
-            std::cout << glGetError() << "\n";
-        }
+        
 
 
         glBindVertexArray(VAO);

@@ -26,7 +26,7 @@ namespace Mutiny {
         public:
             virtual ~Camera() {}
             glm::mat4 projection;
-            static void initialize(int width, int height, const std::string& scene_name = "");
+            static void initialize(int width, int height, const std::string& scene_path);
             static Camera* get_instance();
             void process_keyboard(CameraMovement direction);
             glm::mat4 get_view_matrix();
@@ -39,7 +39,7 @@ namespace Mutiny {
 
             static float keyboard_rotation_speed;
 
-            void save(const std::string& path) const;
+            void save(const std::string& scene_path) const;
 
         private:
 

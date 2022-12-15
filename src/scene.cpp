@@ -10,6 +10,7 @@ namespace  Mutiny {
                 sf::ContextSettings(24, 8, 4, 3, 0)),
         width(width),
         height(height),
+        title(title),
         accumulator(0.0f)
     {
             window.setActive(true);
@@ -22,10 +23,15 @@ namespace  Mutiny {
                 std::cerr << "glew error.\n";
                 exit(1);
             }
+
+
             glEnable(GL_DEPTH_TEST);
             previous_time = std::chrono::system_clock::now();
+            Camera::initialize(width, height, get_scene_data_path());
+    }
 
-
+    Scene::~Scene() {
+        Camera::get_instance()->save(get_scene_data_path());
     }
 
     void Scene::start() {
@@ -103,6 +109,10 @@ namespace  Mutiny {
         }
 
 
+    }
+
+    std::string Scene::get_scene_data_path() const {
+        return  "../scenes/" + title + ".txt";
     }
 
 }

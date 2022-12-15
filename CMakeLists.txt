@@ -23,6 +23,7 @@ set(
     src/game_object.cpp
     src/camera.cpp
     src/scene.cpp
+    src/utils.cpp
 
     src/cube.cpp
 
