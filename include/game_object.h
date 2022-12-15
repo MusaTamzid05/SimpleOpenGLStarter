@@ -15,6 +15,8 @@ namespace Mutiny {
         sf::Vector3f  color;
         Shader* shader;
 
+
+
     };
 }
 

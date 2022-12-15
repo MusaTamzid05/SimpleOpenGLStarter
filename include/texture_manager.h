@@ -9,6 +9,7 @@ namespace Mutiny {
 
     struct TextureData {
 
+        TextureData() {}
         TextureData(const std::string& path,
                 const std::string& name,
                 int width,
@@ -16,6 +17,7 @@ namespace Mutiny {
                 int channels,
                 int id
                 );
+        TextureData(const TextureData& texture_data);
 
         std::string name;
         std::string path;

@@ -7,13 +7,16 @@
 
 namespace Mutiny {
     struct Cube : GameObject {
-        Cube();
+        Cube(const std::string& texture_name = "");
         virtual ~Cube();
         void update(float delta_time);
         void render();
 
         unsigned int VAO;
         unsigned int VBO;
+
+        unsigned int texture_id;
+        bool using_texture;
 
 
     };

@@ -21,6 +21,15 @@ namespace Mutiny {
         channels(channels),
         id(id) {}
 
+    TextureData::TextureData(const TextureData& texture_data) {
+        name = texture_data.name;
+        path = texture_data.path;
+        width = texture_data.width;
+        height = texture_data.height;
+        channels = texture_data.channels;
+        id = texture_data.id;
+    }
+
     TextureManager* TextureManager::instance = nullptr;
 
     TextureManager* TextureManager::get_instance() {

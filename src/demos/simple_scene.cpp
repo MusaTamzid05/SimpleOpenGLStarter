@@ -6,6 +6,6 @@
 namespace Demo {
     SimpleScene::SimpleScene(const std::string& title, int width, int height):Scene(title, width, height){
         Mutiny::TextureManager::get_instance()->add("../textures/wall.jpg", "wall");
-            game_obejcts.push_back(new Mutiny::Cube());
+            game_obejcts.push_back(new Mutiny::Cube("wall"));
     }
 }

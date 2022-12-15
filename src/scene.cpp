@@ -22,7 +22,7 @@ namespace  Mutiny {
                 std::cerr << "glew error.\n";
                 exit(1);
             }
-
+            glEnable(GL_DEPTH_TEST);
             previous_time = std::chrono::system_clock::now();
 
 
