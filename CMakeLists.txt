@@ -26,6 +26,7 @@ set(
     src/utils.cpp
 
     src/cube.cpp
+    src/plane.cpp
 
 
     src/texture_manager.cpp
