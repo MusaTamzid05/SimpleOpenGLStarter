@@ -28,6 +28,8 @@ namespace  Mutiny {
             glEnable(GL_DEPTH_TEST);
             previous_time = std::chrono::system_clock::now();
             Camera::initialize(width, height, get_scene_data_path());
+            world = physicsCommon.createPhysicsWorld();
+
     }
 
     Scene::~Scene() {
@@ -105,6 +107,7 @@ namespace  Mutiny {
 
         while(accumulator >= TIME_STEP) {
             Camera::get_instance()->update(TIME_STEP);
+            world->update(TIME_STEP);
             for(GameObject* game_object : game_objects)
                 game_object->update(delta_time);
 

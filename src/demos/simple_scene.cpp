@@ -3,6 +3,7 @@
 #include "cube.h"
 #include "plane.h"
 #include "texture_manager.h"
+#include "rigid_body_component.h"
 
 namespace Demo {
     SimpleScene::SimpleScene(const std::string& title, int width, int height):Scene(title, width, height){
@@ -11,6 +12,7 @@ namespace Demo {
 
         Mutiny::Cube* cube = new Mutiny::Cube("container");
         cube->position = glm::vec3(0.0f, 10.0f, 0.0f);
+        cube->components.push_back(new Mutiny::RigidBodyComponent(cube, this));
 
         game_objects.push_back(cube);
 

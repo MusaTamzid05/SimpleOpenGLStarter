@@ -3,7 +3,9 @@
 
 #include <SFML/System/Vector3.hpp>
 #include "shader.h"
+#include "component.h"
 
+#include <vector>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -27,6 +29,7 @@ namespace Mutiny {
         sf::Vector3f  color;
         Shader* shader;
 
+        std::vector<Component*>  components;
 
 
     };

@@ -15,6 +15,10 @@ namespace Mutiny {
     }
 
     void GameObject::update(float delta_time) {
+
+        for(Component* component : components)
+            component->update(delta_time);
+
         model = glm::translate(glm::mat4(1.0), glm::vec3(position.x, position.y, position.z)) * glm::mat4_cast(orientation) * glm::scale(glm::mat4(1.0f), glm::vec3(scale.x, scale.y, scale.z));
 
 
@@ -28,6 +32,10 @@ namespace Mutiny {
             shader->setMat4("view", Camera::get_instance()->get_view_matrix());
 
         }
+
+
+        for(Component* component : components)
+            component->render();
 
     }
 }

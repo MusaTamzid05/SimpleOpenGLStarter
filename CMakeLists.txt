@@ -25,6 +25,9 @@ set(
     src/scene.cpp
     src/utils.cpp
 
+
+    src/rigid_body_component.cpp
+
     src/cube.cpp
     src/plane.cpp
 

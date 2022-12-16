@@ -9,6 +9,8 @@
 #include <chrono>
 #include "game_object.h"
 
+#include <reactphysics3d/reactphysics3d.h>
+
 namespace Mutiny {
     struct Scene {
         Scene(const std::string& title, int width = 1024, int height = 768);
@@ -33,6 +35,9 @@ namespace Mutiny {
 
         std::chrono::time_point<std::chrono::system_clock> previous_time;
         float accumulator;
+
+        reactphysics3d::PhysicsCommon physicsCommon;
+        reactphysics3d::PhysicsWorld* world;
     };
 }
 
